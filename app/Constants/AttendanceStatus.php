@@ -1,5 +1,7 @@
 <?php 
 
+namespace App\Constants;
+
 class AttendanceStatus {
     /** @var int $PRESENT Hadir */
     public static $PRESENT = 1;
