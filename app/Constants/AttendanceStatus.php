@@ -20,5 +20,11 @@ class AttendanceStatus {
 
     /** @var int $OTHER_LEAVE Izin lain-lain */
     public static $OTHER_LEAVE = 6;
+
+    /** @var int $LATE_CHECKIN Telat Checkin */
+    public static $LATE_CHECKIN = 7;
+
+    /** @var int $LATE_CHECKOUT Telat Checkout */
+    public static $LATE_CHECKOUT = 8;
 }
 
