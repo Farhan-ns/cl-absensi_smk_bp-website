@@ -79,7 +79,7 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="#" class="app-brand-link gap-2">
                     <img src="{{ asset('image/logo-bp.png') }}" style="width: 25%; margin-left: 15%;" alt="Logo BP">
                     <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: capitalize">
                         Bina Putra
@@ -90,15 +90,16 @@
               <h4 class="mb-2">Welcome</h4>
               <p class="mb-4">Please sign-in to your account</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="{{ route('authenticate') }}" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Email or Username</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
+                    name="email"
+                    placeholder="Enter your email"
                     autofocus
                   />
                 </div>
