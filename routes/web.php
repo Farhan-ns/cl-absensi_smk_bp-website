@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Config\LateLimitController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Middleware\RestrictIpMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('guru', TeacherController::class);
+
+    Route::get('/limit', [LateLimitController::class, 'index'])->name('limit.index');
+    Route::post('/limit', [LateLimitController::class, 'update'])->name('limit.update');
 });

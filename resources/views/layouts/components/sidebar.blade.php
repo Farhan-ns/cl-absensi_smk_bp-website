@@ -21,7 +21,7 @@
     <li class="menu-item">
       <a href="index.html" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Dashboard</div>
+        <div data-i18n="Analytics">Dashboard </div>
       </a>
     </li>
 
@@ -37,12 +37,14 @@
       <span class="menu-header-text">Konfigurasi</span>
     </li>
 
-    <li class="menu-item">
-      <a href="index.html" class="menu-link">
+    <li class="menu-item @if (request()->route()->named('limit.index')) active @endif">
+
+      <a href="{{ route('limit.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Other</div>
+        <div data-i18n="Analytics">Batas Keterlambatan</div>
       </a>
     </li>
+
   </ul>
 </aside>
 <!-- / Menu -->
