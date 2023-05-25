@@ -25,7 +25,7 @@
 
             <div class="d-flex justify-content-end">
                 <button type="submit" class="btn rounded-pill btn-primary">
-                    <i class='bx bx-plus-circle'></i> Simpan
+                    <i class='bx bx-save'></i> Simpan
                 </button>
             </div>
 
