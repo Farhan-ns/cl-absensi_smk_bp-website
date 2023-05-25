@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Middleware\RestrictIpMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     });
+
+    Route::resource('guru', TeacherController::class);
 });
