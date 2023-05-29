@@ -11,7 +11,7 @@ class AllowedIpService {
     public function index() 
     {
         $allowedIps = Cache::rememberForever($this->cacheKey, function () {
-            return AllowedIp::all();
+            return $this->getAllowedIps();
         });
 
         return $allowedIps;
@@ -53,10 +53,16 @@ class AllowedIpService {
 
     private function cacheAllowedIps() 
     {
-        $allowedIps = AllowedIp::all();
+        $allowedIps = $this->getAllowedIps();
 
         Cache::forever($this->cacheKey, $allowedIps);
     }
 
+    private function getAllowedIps(): array
+    {
+        return AllowedIp::get('ip_address')->map(function ($ip) {
+            return $ip->ip_address;
+        })->toArray();
+    }
 
 }
