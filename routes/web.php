@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Config\AllowedIpController;
 use App\Http\Controllers\Config\LateLimitController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Middleware\RestrictIpMiddleware;
+use App\Http\Controllers\TeacherScheduleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('guru', TeacherController::class);
+
+    Route::get('/teacher/{teacherId}/jadwal/', [TeacherScheduleController::class, 'index'])->name('jadwal.index');
+    Route::get('/teacher/{teacherId}/jadwal/create', [TeacherScheduleController::class, 'create'])->name('jadwal.create');
+    Route::resource('jadwal', TeacherScheduleController::class)->except('index', 'create', 'show');
 
     Route::get('/limit', [LateLimitController::class, 'index'])->name('limit.index');
     Route::post('/limit', [LateLimitController::class, 'update'])->name('limit.update');

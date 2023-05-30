@@ -14,4 +14,9 @@ class Teacher extends Authenticatable
     protected $fillable = ['name', 'password', 'birthdate', 'phone', 'email', 'address'];
 
     protected $hidden = ['password'];
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(TeacherSchedule::class);
+    }
 }

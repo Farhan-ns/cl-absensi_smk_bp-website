@@ -49,7 +49,7 @@ class TeacherController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return redirect()->route('jadwal.index', $id);
     }
 
     /**

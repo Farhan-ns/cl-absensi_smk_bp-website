@@ -43,7 +43,7 @@
           <td>{{ $teacher->phone ?? '-' }}</td>
           <td>{{ $teacher->email ?? '-' }}</td>
           <td>
-            <button type="button" class="btn btn-sm rounded-pill btn-outline-primary">Detail</button>
+            <a href="{{ route('guru.show', $teacher->id) }}" class="btn btn-sm rounded-pill btn-outline-primary">Detail</a>
             <a href="{{ route('guru.edit', $teacher->id) }}" class="btn btn-sm rounded-pill btn-outline-info">Edit</a>
 
             <button onclick="handleDataDelete({{ $teacher->id }})" class="btn btn-sm rounded-pill btn-outline-danger">Delete</button>
