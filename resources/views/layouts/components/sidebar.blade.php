@@ -45,6 +45,14 @@
       </a>
     </li>
 
+    <li class="menu-item @if (request()->route()->named('allowed-ip.index')) active @endif">
+
+      <a href="{{ route('allowed-ip.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">IP Absensi</div>
+      </a>
+    </li>
+
   </ul>
 </aside>
 <!-- / Menu -->

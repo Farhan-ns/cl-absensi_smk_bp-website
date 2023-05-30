@@ -21,64 +21,37 @@ class AllowedIpController extends Controller
      */
     public function index()
     {
-        // TODO index view
-    }
+        $allowedIp = $this->service->index()[0];
+        $expAllowedIp = explode('.', $allowedIp);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        // TODO create view
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'ip_address' => 'required'
-        ]);
-
-        $this->service->create($validated);
-
-        // TODO return index view
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        // TODO edit view
+        return view('admin.config.allowed-ip.show', compact('expAllowedIp'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        $validated = $request->validate([
-            'ip_address' => 'required'
-        ]);
+        $allowedIp = AllowedIp::first();
 
-        $allowedIp = AllowedIp::find($id);
+        $validated = $request->validate([
+            'ip_address_1' => 'required|digits_between:0,255',
+            'ip_address_2' => 'required|digits_between:0,255',
+            'ip_address_3' => 'required|digits_between:0,255',
+            'ip_address_4' => 'required|digits_between:0,255',
+        ]);
+        
+        // Replace zero with wildcard (*)
+        foreach ($validated as $key => $value) {
+            if ($value === '0') $validated[$key] = '*';
+        }
+        
+        $validated = [
+            'ip_address' => "$validated[ip_address_1].$validated[ip_address_2].$validated[ip_address_3].$validated[ip_address_4]"
+        ];
 
         $this->service->update($validated, $allowedIp);
 
-        // TODO return index view
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $allowedIp = AllowedIp::find($id);
-
-        $this->service->destroy($allowedIp);
-
-        // TODO return index view
+        return back()->with('message', 'Alamat IP Absensi berhasil diubah');
     }
 }

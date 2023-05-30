@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             TeacherSeeder::class,
-            LateLimitSeeder::class
+            LateLimitSeeder::class,
+            AllowedIpSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([

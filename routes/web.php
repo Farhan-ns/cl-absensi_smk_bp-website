@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Config\AllowedIpController;
 use App\Http\Controllers\Config\LateLimitController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Middleware\RestrictIpMiddleware;
@@ -29,4 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/limit', [LateLimitController::class, 'index'])->name('limit.index');
     Route::post('/limit', [LateLimitController::class, 'update'])->name('limit.update');
+
+    Route::get('/allowed-ip', [AllowedIpController::class, 'index'])->name('allowed-ip.index');
+    Route::post('/allowed-ip', [AllowedIpController::class, 'update'])->name('allowed-ip.update');
 });
