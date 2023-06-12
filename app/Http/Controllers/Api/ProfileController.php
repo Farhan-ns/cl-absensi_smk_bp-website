@@ -19,4 +19,21 @@ class ProfileController extends Controller
     {
         return $this->service->responseSuccess($request->user()); 
     }
+
+    public function editProfile(Request $request) 
+    {
+        $validated = $request->validate([
+            'name' => ['nullable'],
+            'phone' => ['nullable', 'numeric'],
+            'email' => ['nullable', 'email'],
+            'address' => ['nullable'],
+            'birthdate' => ['nullable'],
+        ]);
+
+        $user = $request->user();
+        $user->update($validated);
+        $user->save();
+
+        return $this->service->responseSuccess($user); 
+    }
 }
