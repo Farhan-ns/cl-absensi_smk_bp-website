@@ -38,12 +38,12 @@ class TeacherScheduleController extends Controller
         $teacher = Teacher::find($request->teacher_id);
 
         $validated = $request->validate([
-            'day_id' => ['required', 'numeric'],
+            'day_id' => ['required', 'numeric', 'unique:teacher_schedules,day_id'],
             'checkin_time' => ['required'],
             'checkout_time' => ['required'],
             'subject' => ['nullable'],
             'class_grade' => ['nullable'],
-        ]);
+        ], ['day_id.unique' => 'Guru telah memiliki jadwal di hari tersebut.']);
 
         $teacher->schedules()->create($validated);
 
