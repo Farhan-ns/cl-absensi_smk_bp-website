@@ -32,7 +32,8 @@ class LoginController extends Controller
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return $service->responseSuccess([
-                'token' => $token
+                'token' => $token,
+                'user' => $user
             ]);
 
         } catch (ModelNotFoundException $ex) {
