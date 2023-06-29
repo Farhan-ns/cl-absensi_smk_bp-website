@@ -26,5 +26,11 @@ class AttendanceStatus {
 
     /** @var int $LATE_CHECKOUT Telat Checkout */
     public static $LATE_CHECKOUT = 8;
+
+    /** @var int $CHECKOUT Normal Checkout */
+    public static $CHECKOUT = 9;
+
+    /** @var int $EARLY_CHECKOUT Normal Checkout */
+    public static $EARLY_CHECKOUT = 10;
 }
 
