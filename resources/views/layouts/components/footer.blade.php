@@ -6,8 +6,8 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        , by <a href="https://cyberlabs.co.id/" target="_blank" class="footer-link fw-bolder">Cyberlabs</a>. Attribution to 
-        <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+        , by <a href="https://cyberlabs.co.id/" target="_blank" class="footer-link fw-bolder">CyberLabs</a>. 
+        {{-- <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a> --}}
       </div>
     </div>
   </footer>
