@@ -69,15 +69,19 @@ class TeacherController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required'],
-            'password' => ['required'],
+            'password' => ['nullable'],
             'birthdate' => ['nullable'], 
             'phone' => ['nullable'], 
             'email' => ['nullable'], 
             'address' => ['nullable'],
         ]);
 
+        if (!$validated['password']) unset($validated['password']);
+        
         $teacher = Teacher::find($id);
         $teacher->update($validated);
+
+        if ($validated['password'] ?? false) $teacher->password = bcrypt($validated['password']);
         $teacher->save();
 
         return redirect()->route('guru.index')->with('message', 'Berhasil mengubah data.');

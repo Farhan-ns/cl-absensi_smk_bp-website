@@ -29,37 +29,37 @@
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Nama*</label>
-                <input name="name" type="text" class="form-control w-50" value="{{ $teacher->name }}" placeholder="Nama"
+                <input name="name" type="text" class="form-control w-50" value="{{ old('name') ?? $teacher->name }}" placeholder="Nama"
                     required />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Password*</label>
-                <input name="password" type="text" class="form-control w-50" value="{{ $teacher->password }}"
-                    placeholder="Password" required />
+                <input name="password" type="text" class="form-control w-50" value=""
+                    placeholder="Password"/>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Tanggal Lahir</label>
-                <input name="birthdate" type="date" class="form-control w-50" value="{{ $teacher->birthdate }}"
+                <input name="birthdate" type="date" class="form-control w-50" value="{{ old('birthdate') ?? $teacher->birthdate }}"
                     placeholder="Tanggal Lahir" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Nomor Telepon</label>
-                <input name="phone" type="number" class="form-control w-50" value="{{ $teacher->phone }}"
+                <input name="phone" type="number" class="form-control w-50" value="{{ old('phone') ?? $teacher->phone }}"
                     placeholder="Nomor Telepon" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Email</label>
-                <input name="email" type="email" class="form-control w-50" value="{{ $teacher->email }}"
+                <input name="email" type="email" class="form-control w-50" value="{{ old('email') ?? $teacher->email }}"
                     placeholder="Email" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Alamat Rumah</label>
-                <input name="address" type="text" class="form-control w-50" value="{{ $teacher->address }}"
+                <input name="address" type="text" class="form-control w-50" value="{{ old('address') ?? $teacher->address }}"
                     placeholder="Alamat Rumah" />
             </div>
 
