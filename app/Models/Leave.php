@@ -11,11 +11,20 @@ class Leave extends Model
     use HasFactory;
 
     protected $fillable = [
-        'leave_types',
+        'leave_type',
         'absence_document',
         'absence_note',
         'approval_status',
+        'from_date',
+        'to_date',
+        'absence_reason',
+        'teacher_id',
     ];
+
+    public function teacher(): BelongsTo
+    {
+        return $this->belongsTo(Teacher::class);
+    }
 
     public function attendance(): BelongsTo
     {

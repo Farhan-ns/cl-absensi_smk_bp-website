@@ -8,5 +8,8 @@ class AttendanceSubmitType {
 
     /** @var string $CHECKOUT */
     public static $CHECKOUT = 'checkout';
+
+    /** @var string $CHECKOUT */
+    public static $LEAVE = 'leave';
 }
 

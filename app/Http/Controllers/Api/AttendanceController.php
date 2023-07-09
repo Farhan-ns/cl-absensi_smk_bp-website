@@ -150,7 +150,7 @@ class AttendanceController extends Controller
     private function hasCheckinToday(Teacher $user)
     {
         return $user->attendances()
-            ->whereDay('submit_time', Carbon::today()->day)
+            ->whereDay('submit_time', Carbon::now()->setTimezone('Asia/Jakarta')->day)
             ->where('submit_type', AttendanceSubmitType::$CHECKIN)
             ->get()
             ?->count() >= 1;
@@ -159,7 +159,7 @@ class AttendanceController extends Controller
     private function hasCheckoutToday(Teacher $user)
     {
         return $user->attendances()
-            ->whereDay('submit_time', Carbon::today()->day)
+            ->whereDay('submit_time', Carbon::now()->setTimezone('Asia/Jakarta')->day)
             ->where('submit_type', AttendanceSubmitType::$CHECKOUT)
             ->get()
             ?->count() >= 1;

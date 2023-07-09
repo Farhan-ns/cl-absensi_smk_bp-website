@@ -25,8 +25,8 @@ class Attendance extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public function leave(): HasOne
+    public function leave(): BelongsTo
     {
-        return $this->hasOne(Leave::class);
+        return $this->belongsTo(Leave::class);
     }
 }

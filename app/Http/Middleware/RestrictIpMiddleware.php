@@ -37,10 +37,10 @@ class RestrictIpMiddleware
 
                 // str_contains return true when searching an empty string
                 // Therefore we abort empty string early.
-                if (strlen($expIpAddress[$key]) <= 0) abort(401); 
+                if (strlen($expIpAddress[$key]) <= 0) abort(423); 
 
                 // if doesnt't match with allowed ips, abort.
-                if (!str_contains($value, $expIpAddress[$key])) abort(401);
+                if (!str_contains($value, $expIpAddress[$key])) abort(423);
             }
         }
 

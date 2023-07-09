@@ -20,7 +20,7 @@
     <!-- Dashboard -->
     <li class="menu-item">
       <a href="index.html" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <i class="menu-icon tf-icons bx bxs-dashboard"></i>
         <div data-i18n="Analytics">Dashboard </div>
       </a>
     </li>
@@ -28,8 +28,32 @@
     <li class="menu-item @if (request()->route()->named('guru.index')) active @endif">
 
       <a href="{{ route('guru.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <i class="menu-icon tf-icons bx bx-user"></i>
         <div data-i18n="Analytics">Guru </div>
+      </a>
+    </li>
+
+    <li class="menu-item @if (request()->route()->named('kehadiran.index')) active @endif">
+
+      <a href="{{ route('kehadiran.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-clipboard"></i>
+        <div data-i18n="Analytics">List Kehadiran </div>
+      </a>
+    </li>
+
+    <li class="menu-item @if (request()->route()->named('izin.index')) active @endif">
+
+      <a href="{{ route('izin.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-list-ul"></i>
+        <div data-i18n="Analytics">Pengajuan Izin</div>
+      </a>
+    </li>
+
+    <li class="menu-item @if (request()->route()->named('admin.index')) active @endif">
+
+      <a href="{{ route('admin.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-user-circle"></i>
+        <div data-i18n="Analytics">Admin</div>
       </a>
     </li>
 
@@ -40,7 +64,7 @@
     <li class="menu-item @if (request()->route()->named('limit.index')) active @endif">
 
       <a href="{{ route('limit.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <i class="menu-icon tf-icons bx bx bxs-timer"></i>
         <div data-i18n="Analytics">Batas Keterlambatan</div>
       </a>
     </li>
@@ -48,7 +72,8 @@
     <li class="menu-item @if (request()->route()->named('allowed-ip.index')) active @endif">
 
       <a href="{{ route('allowed-ip.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <i class="menu-icon tf-icons bx bx-broadcast"></i>
+        {{-- <box-icon name='broadcast'></box-icon> --}}
         <div data-i18n="Analytics">IP Absensi</div>
       </a>
     </li>

@@ -14,10 +14,14 @@ return new class extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->id();
-            $table->string('leave_types');
             $table->string('absence_document');
             $table->string('absence_note')->nullable();
+            $table->string('absence_reason')->nullable();
             $table->integer('approval_status')->default(ApprovalStatus::$PENDING);
+            $table->integer('leave_type');
+            $table->date('from_date');
+            $table->date('to_date');
+            $table->foreignId('teacher_id')->constrained();
             $table->timestamps();
         });
     }
