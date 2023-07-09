@@ -19,7 +19,7 @@
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
     <li class="menu-item">
-      <a href="index.html" class="menu-link">
+      <a href="{{ route('dashboard') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bxs-dashboard"></i>
         <div data-i18n="Analytics">Dashboard </div>
       </a>

@@ -32,7 +32,7 @@ Route::get('/change-password', [ChangePasswordController::class, 'showForm'])->n
 Route::post('/change-password', [ChangePasswordController::class, 'changePassword'])->name('change-password.post');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', DashboardController::class);
+    Route::get('/', DashboardController::class)->name('dashboard');
 
     Route::resource('guru', TeacherController::class);
     Route::resource('kehadiran', AttendanceController::class);
