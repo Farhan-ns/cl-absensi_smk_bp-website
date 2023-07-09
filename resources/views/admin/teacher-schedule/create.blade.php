@@ -48,12 +48,12 @@
 
             <div class="mb-3">
                 <label for="html5-time-input" class="col-md-2 col-form-label">Waktu Checkin</label>
-                <input class="form-control w-50" name='checkin_time' type="time" value="08:00:00" id="html5-time-input" />
+                <input class="form-control w-50" name='checkin_time' type="time" value="{{ old('checkin_time') ?? '08:00:00' }}" id="html5-time-input" />
             </div>
 
             <div class="mb-3">
                 <label for="html5-time-input" class="col-md-2 col-form-label">Waktu Checkout</label>
-                <input class="form-control w-50" name='checkout_time' type="time" value="16:00:00" id="html5-time-input" />
+                <input class="form-control w-50" name='checkout_time' type="time" value="{{ old('checkout_time') ?? '16:00:00' }}" id="html5-time-input" />
             </div>
         </form>
     </div>

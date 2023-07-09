@@ -28,13 +28,13 @@
             
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Nama*</label>
-                <input name="name" type="text" class="form-control w-50" id="basic-default-fullname" placeholder="Nama"
+                <input name="name" type="text" class="form-control w-50" id="basic-default-fullname" placeholder="Nama" value="{{ old('name') }}"
                     required />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Email*</label>
-                <input name="email" type="email" class="form-control w-50" id="basic-default-fullname" placeholder="Nama"
+                <input name="email" type="email" class="form-control w-50" id="basic-default-fullname" placeholder="Nama" value="{{ old('email') }}"
                     required />
             </div>
 
