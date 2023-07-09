@@ -49,13 +49,15 @@
       </a>
     </li>
 
-    <li class="menu-item @if (request()->route()->named('admin.index')) active @endif">
+    @if (Auth::user()->role->id == 2)
+      <li class="menu-item @if (request()->route()->named('admin.index')) active @endif">
 
-      <a href="{{ route('admin.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-user-circle"></i>
-        <div data-i18n="Analytics">Admin</div>
-      </a>
-    </li>
+        <a href="{{ route('admin.index') }}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-user-circle"></i>
+          <div data-i18n="Analytics">Admin</div>
+        </a>
+      </li>
+    @endif
 
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Konfigurasi</span>
