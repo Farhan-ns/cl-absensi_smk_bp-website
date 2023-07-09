@@ -3,7 +3,7 @@
 @section('title', 'List Pengajuan Izin')
 
 @section('css')
-{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" /> --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 @endsection
 
 @section('content')
@@ -63,10 +63,10 @@
 @endsection
 
 @section('js')
-  {{-- <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script> --}}
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
 
   <script>
-    // $('#main-table').DataTable();  
+    $('#main-table').DataTable();  
       const handleDataDelete = (id) => {
           if (confirm('Hapus data ini?')) {
               document.getElementById(`form-delete-${id}`).submit();

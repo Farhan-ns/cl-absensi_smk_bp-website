@@ -2,6 +2,10 @@
 
 @section('title', 'Index Admin')
 
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+@endsection
+
 @section('content')
 <h4 class="fw-bold py-3 mb-4">Index Admin</h4>
 
@@ -22,8 +26,8 @@
     </a>
   </h5>
   
-  <div class="table-responsive text-nowrap">
-    <table class="table">
+  <div class="table-responsive text-nowrap p-3">
+    <table class="table" id="main-table">
       <thead>
         <tr>
           <th>#</th>
@@ -61,11 +65,15 @@
 @endsection
 
 @section('js')
-    <script>
-        const handleDataDelete = (id) => {
-            if (confirm('Hapus data ini?')) {
-                document.getElementById(`form-delete-${id}`).submit();
-            }
-        } 
-    </script>
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+
+  <script>
+    $('#main-table').DataTable();  
+    
+    const handleDataDelete = (id) => {
+        if (confirm('Hapus data ini?')) {
+            document.getElementById(`form-delete-${id}`).submit();
+        }
+    } 
+  </script>
 @stop
