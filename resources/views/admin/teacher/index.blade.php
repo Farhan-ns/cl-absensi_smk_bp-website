@@ -32,8 +32,9 @@
         <tr>
           <th>#</th>
           <th>Nama</th>
+          <th>Kelas</th>
+          <th>Mapel</th>
           <th>Nomor Telepon</th>
-          <th>Email</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -44,8 +45,9 @@
         <tr>
           <td>{{ $i++ }}</td>
           <td>{{ $teacher->name }}</td>
+          <td>{{ $teacher->class_grade ?? '-' }}</td>
+          <td>{{ $teacher->subject ?? '-' }}</td>
           <td>{{ $teacher->phone ?? '-' }}</td>
-          <td>{{ $teacher->email ?? '-' }}</td>
           <td>
             <a href="{{ route('guru.show', $teacher->id) }}" class="btn btn-sm rounded-pill btn-outline-primary">Jadwal</a>
             <a href="{{ route('guru.edit', $teacher->id) }}" class="btn btn-sm rounded-pill btn-outline-info">Edit</a>

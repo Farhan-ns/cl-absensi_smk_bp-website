@@ -34,6 +34,18 @@
             </div>
 
             <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Kelas</label>
+                <input name="class_grade" type="text" class="form-control w-50" value="{{ old('class_grade') ?? $teacher->class_grade ?? '' }}" placeholder="Kelas"
+                    required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Mata Pelajaran</label>
+                <input name="subject" type="text" class="form-control w-50" value="{{ old('subject') ?? $teacher->subject ?? '' }}" placeholder="Mata Pelajaran"
+                    required />
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label" for="basic-default-fullname">Password*</label>
                 <input name="password" type="text" class="form-control w-50" value=""
                     placeholder="Password"/>

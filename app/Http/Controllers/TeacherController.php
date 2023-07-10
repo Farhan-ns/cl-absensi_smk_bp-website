@@ -37,6 +37,8 @@ class TeacherController extends Controller
             'phone' => ['nullable'], 
             'email' => ['nullable'], 
             'address' => ['nullable'],
+            'subject' => ['nullable'],
+            'class_grade' => ['nullable'],
         ]);
 
         Teacher::create($validated);
@@ -74,6 +76,8 @@ class TeacherController extends Controller
             'phone' => ['nullable'], 
             'email' => ['nullable'], 
             'address' => ['nullable'],
+            'subject' => ['nullable'],
+            'class_grade' => ['nullable'],
         ]);
 
         if (!$validated['password']) unset($validated['password']);
