@@ -17,6 +17,12 @@
     </div> --}}
     <!-- /Search -->
 
+    <div class="p-1">
+      <span class="fw-semibold d-block">
+        {{ now()->setTimezone('Asia/Jakarta')->format('d M Y') }}
+      </span>
+    </div>
+
     <ul class="navbar-nav flex-row align-items-center ms-auto">
 
       <!-- User -->
