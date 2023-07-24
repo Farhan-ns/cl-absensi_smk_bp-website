@@ -63,4 +63,21 @@ class ProfileController extends Controller
 
         return  $this->service->responseSuccess([], 'Berhasil mengubah foto profil');
     }
+
+    public function changePassword(Request $request)
+    {
+        $validated = $request->validate([
+            'password' => ['current_password:sanctum'],
+            'new_password' => ['confirmed']
+        ], [
+            'password' => 'Password salah',
+            'new_password' => 'Password konfirmasi tidak cocok dengan password baru'
+        ]);
+
+        $teacher = $request->user();
+        $teacher->password = bcrypt($validated['new_password']);
+        $teacher->save();
+
+        return $this->service->responseSuccess([], 'Berhasil mengubah password');
+    }
 }

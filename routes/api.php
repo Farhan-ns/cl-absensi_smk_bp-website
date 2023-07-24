@@ -29,6 +29,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/profile', [ProfileController::class, 'editProfile'])->name('profile.update');
     Route::put('/profile-picture', [ProfileController::class, 'editProfilePicture'])->name('profile-picture.update');
 
+    Route::post('/change-password', [ProfileController::class, 'changePassword'])->name('change-password');
+
     Route::get('/schedules', [TeacherScheduleController::class, 'getSchedules']);
     Route::get('/check-today-attendance', [AttendanceController::class, 'checkTodaysAttendanceStatus']);
 
