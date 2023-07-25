@@ -41,6 +41,7 @@ class TeacherController extends Controller
             'class_grade' => ['nullable'],
         ]);
 
+        $validated['password'] = bcrypt($validated['password']);
         Teacher::create($validated);
 
         return redirect()->route('guru.index')->with('message', 'Berhasil menambahkan data.');
