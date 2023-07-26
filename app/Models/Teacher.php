@@ -15,7 +15,7 @@ class Teacher extends Authenticatable
     use HasFactory, HasApiTokens, Notifiable, SoftDeletes;
 
     protected $fillable = [
-        'name', 'password', 'birthdate', 'phone', 'email', 'address', 'subject', 'class_grade'
+        'id', 'name', 'password', 'birthdate', 'phone', 'email', 'address', 'subject', 'class_grade', 'deleted_at'
     ];
 
     protected $hidden = ['password'];

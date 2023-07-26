@@ -52,4 +52,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/allowed-ip', [AllowedIpController::class, 'index'])->name('allowed-ip.index');
     Route::post('/allowed-ip', [AllowedIpController::class, 'update'])->name('allowed-ip.update');
+
+    Route::post('/import/guru', [TeacherController::class, 'import'])->name('import.teacher');
+    Route::get('/export/guru', [TeacherController::class, 'export'])->name('export.teacher');
 });

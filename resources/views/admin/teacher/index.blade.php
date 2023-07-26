@@ -4,6 +4,7 @@
 
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css">
 @endsection
 
 @section('content')
@@ -21,11 +22,23 @@
   @endif
 
   <h5 class="card-header">
-    <a href="{{ route('guru.create') }}" class="btn rounded-pill btn-primary">
-      <i class='bx bx-plus-circle'></i> Tambah
-    </a>
+    <div class="d-flex justify-content-between">
+      <a href="{{ route('guru.create') }}" class="btn rounded-pill btn-primary">
+        <i class='bx bx-plus-circle'></i> Tambah
+      </a>
+
+      <div class="d-flex justify-content-right gap-2">
+        <button onclick="showUploadDialog()" class="btn rounded-pill btn-primary">
+          <i class='bx bx-import' ></i> Import
+        </button>
+        
+        <a href="{{ route('export.teacher') }}" class="btn rounded-pill btn-primary">
+          <i class='bx bx-export'></i> Export
+        </a>
+      </div>
+    </div>
   </h5>
-  
+
   <div class="table-responsive text-nowrap p-3">
     <table class="table" id="main-table">
       <thead>
@@ -69,9 +82,47 @@
 
 @section('js')
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+  
   <script>
-    $('#main-table').DataTable();  
+    $('#main-table').DataTable();
+
+    const showUploadDialog = async () => {
+      const { value: file } = await Swal.fire({
+        title: 'Select File',
+        input: 'file',
+        inputAttributes: {
+          'accept': '.xlsx',
+          'aria-label': 'Upload file'
+        }
+      });
+
+      if (file) {
+        let formData = new FormData();
+        formData.append('file', file);
+        formData.append('_token', '{!! csrf_token() !!}');
+
+        fetch('{{ route('import.teacher') }}', {
+          method: "POST", 
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            Swal.fire({
+              title: 'Berhasil meng-import data',
+              confirmButtonText: 'OK',
+              icon: 'success',
+              allowOutsideClick: false,
+              allowEscapeKey: false,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              }
+            });
+          }
+
+        });
+      }
+    }
     
     const handleDataDelete = (id) => {
         if (confirm('Hapus data ini?')) {

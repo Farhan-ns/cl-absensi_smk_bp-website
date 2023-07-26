@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TeachersExport;
+use App\Imports\TeachersImport;
 use App\Models\Teacher;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -101,5 +104,19 @@ class TeacherController extends Controller
         $teacher->delete();
 
         return redirect()->route('guru.index')->with('message', 'Berhasil menghapus data.');
+    }
+
+    public function export()
+    {
+        $date = now()->format('d-M-Y');
+        return Excel::download(new TeachersExport, "export-guru-$date.xlsx");
+    }
+
+    public function import(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            Excel::import(new TeachersImport, $request->file('file'));
+        }
+        // No exception means a 200 OK http response automatically
     }
 }
