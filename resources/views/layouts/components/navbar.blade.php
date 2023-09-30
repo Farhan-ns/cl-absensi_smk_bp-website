@@ -81,6 +81,26 @@
               </span>
             </a>
           </li>
+          @if (Auth::user()->role->id == 2)
+            <li>
+              {{-- <a class="dropdown-item" href="{{ route('restore') }}"> --}}
+              <a class="dropdown-item" href="#" onclick="showRestoreDialog()">
+                <span class="d-flex align-items-center align-middle">
+                  <i class="flex-shrink-0 bx bx-revision me-2"></i>
+                  <span class="flex-grow-1 align-middle">Restore</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              {{-- <a class="dropdown-item" href="{{ route('backup') }}"> --}}
+              <a class="dropdown-item" href="#" onclick="showBackupDialog()">
+                <span class="d-flex align-items-center align-middle">
+                  <i class="flex-shrink-0 bx bxs-data me-2"></i>
+                  <span class="flex-grow-1 align-middle">Backup</span>
+                </span>
+              </a>
+            </li>
+          @endif
           <li>
             <div class="dropdown-divider"></div>
           </li>

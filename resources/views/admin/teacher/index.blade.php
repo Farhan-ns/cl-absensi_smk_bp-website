@@ -82,7 +82,6 @@
 
 @section('js')
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
   
   <script>
     $('#main-table').DataTable();
@@ -95,7 +94,7 @@
           'accept': '.xlsx',
           'aria-label': 'Upload file'
         }
-      });
+      }); 
 
       if (file) {
         let formData = new FormData();

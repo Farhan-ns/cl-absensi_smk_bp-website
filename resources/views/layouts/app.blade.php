@@ -105,9 +105,36 @@
     <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    {{-- Backup & Restore Sweetalert --}}
+    <script>
+      const showBackupDialog = () => {
+        Swal.fire({
+          title: 'Backup Semua Data?',
+          showCancelButton: true,
+          confirmButtonText: 'Backup',
+        }).then(result => {
+          if (result.isConfirmed) {
+            window.location.href = '{{ route('backup') }}';
+          }
+        });
+      };
+      const showRestoreDialog = () => {
+        Swal.fire({
+          title: 'Restore semua data dengan backup terbaru?',
+          showCancelButton: true,
+          confirmButtonText: 'Restore',
+        }).then(result => {
+          if (result.isConfirmed) {
+            window.location.href = '{{ route('restore') }}';
+          }
+        });
+      };
+    </script>
 
     {{-- Other JS --}}
     @yield('js')

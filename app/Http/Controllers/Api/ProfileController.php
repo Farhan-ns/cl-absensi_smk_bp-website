@@ -45,8 +45,14 @@ class ProfileController extends Controller
             'image' => ['required', 'file', 'mimes:jpg,png,jpeg'],
         ]);
 
-        $directory = public_path('/profile_pictures/teachers');
-        File::ensureDirectoryExists($directory);
+        $directory = '';
+        if (config('app.env') == 'production') {
+            $directory = base_path('../domains/smkbinaputracihampelas.sch.id/public_html/profile_pictures/teachers');
+            // $directory = base_path('../public_html/profile_pictures/teachers');
+        } else {
+            $directory = public_path('/profile_pictures/teachers');    
+            File::ensureDirectoryExists($directory);
+        }
 
         $imageName = $request->file('image')->hashName();
         $request->file('image')->move($directory, $imageName);

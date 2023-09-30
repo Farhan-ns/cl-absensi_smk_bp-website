@@ -83,3 +83,17 @@
 </div>
 
 @endsection
+
+@if (Session::has('swal-success'))
+    @section('js')
+        <script>
+            Swal.fire('{{ Session::get('swal-success') }}', '', 'success')
+        </script>
+    @endsection
+@elseif (Session::has('swal-failed'))
+    @section('js')
+        <script>
+            Swal.fire('{{ Session::get('swal-failed') }}', '', 'error')
+        </script>
+    @endsection
+@endif

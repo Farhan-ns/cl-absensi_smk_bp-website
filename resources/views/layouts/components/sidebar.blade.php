@@ -41,6 +41,14 @@
       </a>
     </li>
 
+    <li class="menu-item @if (request()->route()->named('attendance.statistics')) active @endif">
+
+      <a href="{{ route('attendance.statistics') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-clipboard"></i>
+        <div data-i18n="Analytics">Statistik Kehadiran </div>
+      </a>
+    </li>
+
     <li class="menu-item @if (request()->route()->named('izin.index')) active @endif">
 
       <a href="{{ route('izin.index') }}" class="menu-link">
